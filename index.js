@@ -47,7 +47,7 @@ generateBtn.addEventListener('click', function() {
   secondsElapsedSpan.innerText = ""
   sortBtn.style.display = 'none'
   timeTitle.style.display = 'none'
-  
+
   if(!!input.value) {
     const count = Number(input.value)
     for(let i = 0; i < count; i++) {
@@ -72,8 +72,10 @@ async function bubbleSort(array) {
   let temp = 0
   let sorted = false
   let comps = array.length - 1
+  let iteratrions = 0
   while(!sorted) {
     sorted = true
+    iteratrions++
     for(let i = 0; i < comps; i++) {
       if(array[i] > array[i+1]) {
         temp = array[i]
@@ -82,6 +84,9 @@ async function bubbleSort(array) {
         sorted = 0
       }
     }
+    const elementsString = array.join(', ')
+    resultParagrapgh.innerText += `Step ${iteratrions}: \n` +
+    "[ " + elementsString + " ] \n"
     comps--
   }
   return array
@@ -97,7 +102,7 @@ sortBtn.addEventListener('click', function() {
     const elementsString = array.join(", ")
     timeTitle.style.display = 'block'
     secondsElapsedSpan.innerText = end - start + ' ms.'
-    resultParagrapgh.innerText = "Sorted: \n [ " + elementsString + " ]"
+    resultParagrapgh.innerText += "Sorted: \n [ " + elementsString + " ]"
     text.style.display = 'block'
     spinner.style.display = 'none'
   })
