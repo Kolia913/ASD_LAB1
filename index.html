@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet" type="text/css" >
+  <title>Lab 1</title>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="header">
+        <div class="header__title">
+          <h1 class="header__title-text">Bubble Sort</h1>
+          <img src="./images/giphy.gif" width="24" height="36" class="header__title-image" />
+        </div>
+        <a href="https://en.wikipedia.org/wiki/Bubble_sort" class="button" target="_blank">
+          <img src="./images/wikipedia.svg" width="24" height="24" class="button__image"/>
+          <p>More...</p></a>
+      </div>
+      <hr class="divider" />
+      <div class="form">
+        <input placeholder="Enter count of elements" class="form__input" id="input" type="number">
+        <div class="button" id="generate">Generate</div>
+      </div>
+      <div class="array">
+        <p class="array_elements" id="elements"></p>
+      </div>
+      <div class="array">
+        <p class="array_elements" id="processedElements"></p>
+      </div>
+      <div class="button__wrapper">
+        <div class="button" id="sort">
+          <p id="text">
+            Bubble Sort
+          </p>
+          <div id="spinner" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+      </div>
+      <div class="results" id="results">
+        <p class="time__title" id="timeTitle">Time spent: <span class="time__value" id="timeValue"></span></p>
+      </div>
+      <div class="result-array">
+        <p class="result-array_elements" id="resultElements"></p>
+      </div>
+    </div>
+    <div class="srollTop" id="scrollTop">
+      <img src="./images/top.svg" />
+    </div>
+    <div class="srollBottom" id="scrollBottom">
+      <img src="./images/top.svg" />
+    </div>
+  </main>
+  <script src="./index.js" lang="javascript"></script>
+</body>
+</html>
