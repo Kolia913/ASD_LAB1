@@ -1,6 +1,10 @@
 let array = []
+const randomForm = document.getElementById('random')
+const manualForm = document.getElementById('manual')
 const generateBtn = document.getElementById('generate')
+const manualBtn = document.getElementById('manual')
 const input = document.getElementById('input')
+const manualInput = document.getElementById('manualInput')
 const sortBtn = document.getElementById('sort')
 const secondsElapsedSpan = document.getElementById('timeValue')
 const resultParagrapgh = document.getElementById('resultElements')
@@ -12,8 +16,28 @@ const spinner = document.getElementById('spinner')
 const paragrapgh = document.getElementById('elements')
 const processedParagraph = document.getElementById('processedElements')
 
+randomForm.style.display = 'none'
+manualForm.style.display = 'none'
 scrollTopBtn.style.display = "none"
 scrllBottomBtn.style.display = "flex"
+
+document.getElementsByName('inputType').forEach(radio => {
+  radio.addEventListener('click', function(e) {
+    paragrapgh.innerText = ""
+    processedParagraph.innerText = ""
+    resultParagrapgh.innerText = ""
+    secondsElapsedSpan.innerText = ""
+    sortBtn.style.display = 'none'
+    timeTitle.style.display = 'none'
+    if(e.target.value === "0") {
+      randomForm.style.display = 'flex'
+      manualForm.style.display = 'none'
+    } else {
+      randomForm.style.display = 'none'
+      manualForm.style.display = 'flex'
+    }
+  })
+})
 
 function isEven(s)
 {
@@ -60,6 +84,30 @@ generateBtn.addEventListener('click', function() {
         return Math.sqrt(Math.abs(el-10))
       } else {
         return el
+      }
+    })
+    const processedElementsString = array.join(", ")
+    processedParagraph.innerText = "Processed: \n [ " + processedElementsString + " ]"
+    sortBtn.style.display = 'flex'
+  }
+})
+
+manualBtn.addEventListener('click', function() {
+  spinner.style.display = 'none'
+  array = []
+  paragrapgh.innerText = ""
+  processedParagraph.innerText = ""
+  resultParagrapgh.innerText = ""
+  secondsElapsedSpan.innerText = ""
+  sortBtn.style.display = 'none'
+  timeTitle.style.display = 'none'
+  if(!!manualInput.value) {
+    manualInput.value.trim().split(",").forEach(el => {
+      const item = Number(el.trim())
+      if(isEven(item.toString())) {
+        array.push(Math.sqrt(Math.abs(item-10)))
+      } else {
+        array.push(item)
       }
     })
     const processedElementsString = array.join(", ")

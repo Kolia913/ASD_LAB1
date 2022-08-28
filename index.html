@@ -23,9 +23,23 @@
           <p>More...</p></a>
       </div>
       <hr class="divider" />
-      <div class="form">
+      <div class="slecet-input-type">
+        <div class="select-input-type__item">
+          <input type="radio" id="inputType" class="radio-input" name="inputType" value="0">
+          <p>Generate random array</p>
+        </div>
+        <div class="select-input-type__item">
+          <input type="radio" id="inputType1" class="radio-input" name="inputType" value="1">
+          <p>Enter array values manually</p>
+        </div>
+      </div>
+      <div class="form" id="random">
         <input placeholder="Enter count of elements" class="form__input" id="input" type="number">
         <div class="button" id="generate">Generate</div>
+      </div>
+      <div class="form" id="manual">
+        <input placeholder="Enter elements in format <1,3,4,2,8...>" class="form__input" id="manualInput">
+          <div class="button" id="process">Process</div>
       </div>
       <div class="array">
         <p class="array_elements" id="elements"></p>
